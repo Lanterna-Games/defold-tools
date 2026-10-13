@@ -1,0 +1,282 @@
+{
+  "name": "defold-tools",
+  "displayName": "Defold Tools",
+  "description": "Write Defold games from VS Code: problems as you type, completion and rename for the names of your project, build, run, hot reload and a debugger.",
+  "icon": "icon.png",
+  "version": "0.17.1",
+  "publisher": "lanterna-games",
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lanterna-Games/defold-tools.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Debuggers"
+  ],
+  "keywords": [
+    "defold",
+    "lua",
+    "game development",
+    "linter",
+    "debugger",
+    "language server"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "workspaceContains:game.project",
+    "onDebugResolve:defold"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Defold Tools",
+      "properties": {
+        "defoldTools.server.path": {
+          "type": "string",
+          "default": "defoldpls",
+          "scope": "machine-overridable",
+          "description": "The defoldpls program to run. A name is looked up in the PATH."
+        },
+        "defoldTools.defoldHome": {
+          "type": "string",
+          "default": "",
+          "scope": "machine-overridable",
+          "description": "The directory the Defold editor is installed in, used to build and run the game. Empty means the editor that was launched last."
+        },
+        "defoldTools.reloadOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "While the game runs from Defold: Build and Run, have it take a script again each time the script is saved."
+        },
+        "defoldTools.showWithTheFile": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show an atlas, a tile source, a tile map, a game object or a collection as a picture next to its text, each time one is opened. Defold: Show What This File Draws does it when asked."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "[lua]": {
+        "editor.quickSuggestions": {
+          "strings": "on"
+        }
+      },
+      "Lua.diagnostics.globals": [
+        "b2d",
+        "bit",
+        "buffer",
+        "bullet3d",
+        "camera",
+        "collectionfactory",
+        "collectionproxy",
+        "compute",
+        "crash",
+        "factory",
+        "final",
+        "fixed_update",
+        "font",
+        "go",
+        "graphics",
+        "gui",
+        "hash",
+        "hash_to_hex",
+        "html5",
+        "http",
+        "image",
+        "init",
+        "json",
+        "label",
+        "late_update",
+        "liveupdate",
+        "material",
+        "model",
+        "msg",
+        "on_input",
+        "on_message",
+        "on_reload",
+        "particlefx",
+        "physics",
+        "pprint",
+        "profiler",
+        "render",
+        "resource",
+        "socket",
+        "sound",
+        "sprite",
+        "sys",
+        "tilemap",
+        "timer",
+        "types",
+        "update",
+        "vmath",
+        "window",
+        "zlib"
+      ]
+    },
+    "commands": [
+      {
+        "command": "defoldTools.restart",
+        "title": "Defold: Restart the Language Server"
+      },
+      {
+        "command": "defoldTools.openReference",
+        "title": "Defold: Open the Offline Reference"
+      },
+      {
+        "command": "defoldTools.useAnnotations",
+        "title": "Defold: Use the API Annotations in This Workspace"
+      },
+      {
+        "command": "defoldTools.build",
+        "title": "Defold: Build"
+      },
+      {
+        "command": "defoldTools.run",
+        "title": "Defold: Build and Run"
+      },
+      {
+        "command": "defoldTools.reload",
+        "title": "Defold: Hot Reload This File"
+      },
+      {
+        "command": "defoldTools.stop",
+        "title": "Defold: Stop the Game"
+      },
+      {
+        "command": "defoldTools.clean",
+        "title": "Defold: Clean the Build"
+      },
+      {
+        "command": "defoldTools.resolve",
+        "title": "Defold: Fetch Libraries"
+      },
+      {
+        "command": "defoldTools.syncAtlas",
+        "title": "Defold: Bring This Atlas in Line with the Images on Disk"
+      },
+      {
+        "command": "defoldTools.debug",
+        "title": "Defold: Build and Debug"
+      },
+      {
+        "command": "defoldTools.bundle",
+        "title": "Defold: Bundle the Game"
+      },
+      {
+        "command": "defoldTools.new",
+        "title": "Defold: New File…"
+      },
+      {
+        "command": "defoldTools.uses",
+        "title": "Defold: Show What Uses This File"
+      },
+      {
+        "command": "defoldTools.show",
+        "title": "Defold: Show What This File Draws",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "defoldTools.new",
+          "group": "navigation@9"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "defoldTools.show",
+          "when": "resourceExtname == .atlas || resourceExtname == .tilesource || resourceExtname == .tilemap || resourceExtname == .collection || resourceExtname == .go || resourceExtname == .gui",
+          "group": "navigation"
+        }
+      ]
+    },
+    "taskDefinitions": [
+      {
+        "type": "defold",
+        "required": [
+          "command"
+        ],
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "build, run, resolve, clean or bundle"
+          }
+        }
+      }
+    ],
+    "problemMatchers": [
+      {
+        "name": "defold-build",
+        "owner": "defold-build",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ],
+        "pattern": {
+          "regexp": "^(.+?):(\\d+):(\\d+): (.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "message": 4
+        }
+      },
+      {
+        "name": "defold-run",
+        "owner": "defold-run",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ],
+        "pattern": {
+          "regexp": "^ERROR:SCRIPT: (.+?):(\\d+): (.*)$",
+          "file": 1,
+          "line": 2,
+          "message": 3
+        }
+      }
+    ],
+    "breakpoints": [
+      {
+        "language": "lua"
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "defold",
+        "label": "Defold",
+        "languages": [
+          "lua"
+        ],
+        "configurationAttributes": {
+          "launch": {
+            "properties": {
+              "root": {
+                "type": "string",
+                "description": "The directory of the project. The workspace folder when left out."
+              },
+              "defoldHome": {
+                "type": "string",
+                "description": "The directory the Defold editor is installed in."
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "defold",
+            "request": "launch",
+            "name": "Defold: Build and Debug"
+          }
+        ]
+      }
+    ]
+  }
+}

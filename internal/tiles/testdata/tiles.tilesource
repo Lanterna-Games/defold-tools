@@ -1,0 +1,18 @@
+image: "/main/tiles.png"
+tile_width: 16
+tile_height: 16
+tile_margin: 1
+tile_spacing: 2
+animations {
+  id: "blink"
+  start_tile: 2
+  end_tile: 4
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+}
+animations {
+  id: "last"
+  start_tile: 12
+  end_tile: 12
+}
+extrude_borders: 2

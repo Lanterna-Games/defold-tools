@@ -1,0 +1,6 @@
+images {
+  image: "/main/quarters.png"
+  pivot_x: 0.25
+  pivot_y: 1.0
+}
+extrude_borders: 2

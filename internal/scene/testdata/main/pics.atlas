@@ -1,0 +1,24 @@
+images {
+  image: "/main/quarters.png"
+}
+images {
+  image: "/main/ramp.png"
+}
+images {
+  image: "/main/dot.png"
+}
+animations {
+  id: "mirrored"
+  images {
+    image: "/main/quarters.png"
+  }
+  flip_horizontal: 1
+}
+animations {
+  id: "upside_down"
+  images {
+    image: "/main/quarters.png"
+  }
+  flip_vertical: 1
+}
+extrude_borders: 2

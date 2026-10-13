@@ -1,0 +1,24 @@
+# Optional and local: `mise run hooks` installs them. They run what `make check`
+# runs, a part at a time.
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      glob: "*.go"
+      run: golangci-lint fmt --diff
+    - name: lint
+      glob: "*.go"
+      run: golangci-lint run
+    - name: scripts
+      glob: "scripts/*.sh"
+      run: shellcheck {staged_files}
+
+commit-msg:
+  jobs:
+    - name: conventional commit
+      run: scripts/check-commit-messages.sh --file {1}
+
+pre-push:
+  jobs:
+    - name: tests
+      run: go test -race ./...

@@ -1,0 +1,20 @@
+tile_set: "/main/tiles.tilesource"
+layers {
+  id: "ground"
+  z: 0.0
+  is_visible: 1
+  cell {
+    x: 0
+    y: 0
+    tile: 0
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 2
+    y: 1
+    tile: 1
+    h_flip: 0
+    v_flip: 0
+  }
+}

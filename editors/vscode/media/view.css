@@ -1,0 +1,171 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  flex: none;
+  display: flex;
+  gap: 1.5em;
+  padding: 6px 12px;
+  min-height: 1.4em;
+  color: var(--vscode-descriptionForeground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#status {
+  color: var(--vscode-editorWarning-foreground);
+}
+
+#status.failure {
+  color: var(--vscode-errorForeground);
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+#stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+}
+
+#stage.dragged {
+  cursor: grabbing;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  box-shadow: 0 0 0 var(--line) var(--vscode-editorWidget-border, var(--vscode-foreground));
+  background-color: var(--vscode-editorWidget-background, transparent);
+  background-image:
+    linear-gradient(45deg, rgba(128, 128, 128, 0.12) 25%, transparent 25%, transparent 75%, rgba(128, 128, 128, 0.12) 75%),
+    linear-gradient(45deg, rgba(128, 128, 128, 0.12) 25%, transparent 25%, transparent 75%, rgba(128, 128, 128, 0.12) 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    8px 8px;
+}
+
+.image {
+  position: absolute;
+  overflow: hidden;
+}
+
+.image img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 var(--line) var(--vscode-editorIndentGuide-activeBackground, rgba(128, 128, 128, 0.6));
+}
+
+.image:hover::after {
+  box-shadow: inset 0 0 0 calc(var(--line) * 2) var(--vscode-focusBorder);
+}
+
+.image.pointed::after {
+  box-shadow: inset 0 0 0 calc(var(--line) * 3) var(--vscode-focusBorder);
+}
+
+.crisp img {
+  image-rendering: pixelated;
+}
+
+.page.plain {
+  background-image: none;
+}
+
+.whole,
+.map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.map {
+  pointer-events: auto;
+  image-rendering: pixelated;
+}
+
+.crisp .whole {
+  image-rendering: pixelated;
+}
+
+.tile {
+  position: absolute;
+  box-shadow: inset 0 0 0 var(--line) var(--vscode-editorIndentGuide-activeBackground, rgba(128, 128, 128, 0.6));
+}
+
+.tile.animated {
+  box-shadow: inset 0 0 0 var(--line) var(--vscode-editorInfo-foreground, var(--vscode-focusBorder));
+}
+
+.tile:hover {
+  box-shadow: inset 0 0 0 calc(var(--line) * 2) var(--vscode-focusBorder);
+}
+
+.tile.pointed,
+.cell.pointed {
+  box-shadow: inset 0 0 0 calc(var(--line) * 3) var(--vscode-focusBorder);
+}
+
+.numbered .tile::before {
+  content: attr(data-number);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: var(--line) calc(var(--line) * 3);
+  font-size: calc(var(--line) * 10);
+  line-height: 1.2;
+  color: var(--vscode-editor-foreground, #fff);
+  background: var(--vscode-editor-background, #000);
+  opacity: 0.85;
+}
+
+.cell {
+  position: absolute;
+  pointer-events: none;
+}
+
+.scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,15 @@
+# The versions the checks run with. `mise install` installs them.
+[tools]
+go = "1.27"
+golangci-lint = "2.14.0"
+lefthook = "2.2.1"
+shellcheck = "0.11.0"
+gitleaks = "8.30.1"
+
+[tasks.check]
+description = "Every check, in one command"
+run = "make check"
+
+[tasks.hooks]
+description = "Install the git hooks"
+run = "lefthook install"

@@ -1,0 +1,15 @@
+images {
+  image: "/main/ball.png"
+}
+images {
+  image: "/main/wall.png"
+}
+animations {
+  id: "blink"
+  images {
+    image: "/main/wall.png"
+  }
+  images {
+    image: "/main/ball.png"
+  }
+}

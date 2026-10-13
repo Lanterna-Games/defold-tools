@@ -1,0 +1,117 @@
+name: "main"
+scale_along_z: 0
+instances {
+  id: "parent"
+  prototype: "/main/hero.go"
+  children: "child"
+  position {
+    x: 100
+    y: 50
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.25881904510252074
+    w: 0.9659258262890683
+  }
+  scale3 {
+    x: 2
+    y: 2
+    z: 1
+  }
+}
+instances {
+  id: "child"
+  prototype: "/main/prop.go"
+  position {
+    x: 10
+    y: 0
+    z: 0.5
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.3826834323650898
+    w: 0.9238795325112867
+  }
+  scale3 {
+    x: 1
+    y: 3
+    z: 1
+  }
+}
+instances {
+  id: "ground"
+  prototype: "/main/ground.go"
+  position {
+    x: -50
+    y: -40
+    z: -0.5
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_instances {
+  id: "emb"
+  data: "embedded_components {\n"
+  "  id: \"sprite\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"wall\\\"\\n\"\n"
+  "  \"material: \\\"/builtins/materials/sprite.material\\\"\\n\"\n"
+  "  \"textures {\\n\"\n"
+  "  \"  sampler: \\\"texture_sampler\\\"\\n\"\n"
+  "  \"  texture: \\\"/main/sprites.atlas\\\"\\n\"\n"
+  "  \"}\\n\"\n"
+  "  \"\"\n"
+  "}\n"
+  ""
+  position {
+    x: 0
+    y: -80
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: -0.17364817766693033
+    w: 0.984807753012208
+  }
+  scale3 {
+    x: 1.5
+    y: 1.5
+    z: 1
+  }
+}
+embedded_instances {
+  id: "probe"
+  data: "components {\n"
+  "  id: \"probe\"\n"
+  "  component: \"/main/probe.script\"\n"
+  "}\n"
+  ""
+}
+collection_instances {
+  id: "sub"
+  collection: "/main/sub.collection"
+  position {
+    x: -200
+    y: 20
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.7071067811865475
+    w: 0.7071067811865476
+  }
+  scale3 {
+    x: 0.5
+    y: 0.5
+    z: 1
+  }
+}

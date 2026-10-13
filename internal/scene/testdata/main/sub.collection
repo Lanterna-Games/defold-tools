@@ -1,0 +1,58 @@
+name: "sub"
+scale_along_z: 0
+instances {
+  id: "leaf"
+  prototype: "/main/prop.go"
+  children: "tip"
+  position {
+    x: 40
+    y: 0
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+instances {
+  id: "tip"
+  prototype: "/main/prop.go"
+  position {
+    x: 0
+    y: 30
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 2
+    y: 1
+    z: 1
+  }
+}
+collection_instances {
+  id: "deep"
+  collection: "/main/deep.collection"
+  position {
+    x: 10
+    y: 10
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 3
+    y: 3
+    z: 1
+  }
+}

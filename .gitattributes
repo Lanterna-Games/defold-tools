@@ -1,0 +1,11 @@
+# One line ending everywhere: the project is developed on Windows, macOS and
+# Linux, and test fixtures are compared byte for byte.
+* text=auto eol=lf
+
+*.go text eol=lf diff=golang
+*.sh text eol=lf
+*.md text eol=lf diff=markdown
+
+go.sum linguist-generated
+internal/engine/reference/*.json.gz binary linguist-generated
+internal/docs/bundled/*.docs.json.gz binary linguist-generated

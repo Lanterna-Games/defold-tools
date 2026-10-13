@@ -1,0 +1,30 @@
+tile_set: "/main/tiles.tilesource"
+layers {
+  id: "ground"
+  z: 0.0
+  is_visible: 1
+  cell {
+    x: 0
+    y: 0
+    tile: 0
+    h_flip: 0
+    v_flip: 0
+  }
+  cell {
+    x: 1
+    y: 0
+    tile: 5
+    h_flip: 1
+    v_flip: 0
+  }
+  cell {
+    x: -1
+    y: 2
+    tile: 11
+    h_flip: 0
+    v_flip: 1
+    rotate90: 1
+  }
+}
+material: "/builtins/materials/tile_map.material"
+blend_mode: BLEND_MODE_ALPHA

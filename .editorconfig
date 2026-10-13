@@ -1,0 +1,23 @@
+# gofmt decides the .go rules; this is for everything gofmt does not reach.
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.go]
+indent_style = tab
+indent_size = 4
+
+# A recipe line indented with spaces is not a recipe line.
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# A trailing double space is a line break in Markdown.
+[*.md]
+trim_trailing_whitespace = false

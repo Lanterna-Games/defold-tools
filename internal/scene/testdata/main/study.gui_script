@@ -1,0 +1,23 @@
+local IDS = { "plain", "turned", "turned_child", "turned_flat_child", "auto", "stretched", "no_size", "text", "pie", "holder/root", "holder/leaf", "holder/silent", "holder/nest/dot", "spun", "spun_child", "spun_flat_child", "z30", "z30_child", "z45", "z45_child", "z123", "z123_child" }
+local STEP = 2
+
+function init(self)
+    local width, height = window.get_size()
+    print(string.format("WINDOW %d %d", width, height))
+    for _, id in ipairs(IDS) do
+        local node = gui.get_node(id)
+        local at, size, scale, colour = gui.get_screen_position(node), gui.get_size(node), gui.get_scale(node), gui.get_color(node)
+        local count, sum_x, sum_y, min_x, max_x, min_y, max_y = 0, 0, 0, 1e9, -1e9, 1e9, -1e9
+        for y = 1, height, STEP do
+            for x = 1, width, STEP do
+                if gui.pick_node(node, x, y) then
+                    count, sum_x, sum_y = count + 1, sum_x + x, sum_y + y
+                    min_x, max_x, min_y, max_y = math.min(min_x, x), math.max(max_x, x), math.min(min_y, y), math.max(max_y, y)
+                end
+            end
+        end
+        print(string.format("NODE %s at %.4f %.4f size %.4f %.4f scale %.4f %.4f colour %.2f %.2f %.2f %.2f picked %d centre %.3f %.3f box %d %d %d %d",
+            id, at.x, at.y, size.x, size.y, scale.x, scale.y, colour.x, colour.y, colour.z, colour.w, count,
+            count > 0 and sum_x / count or 0, count > 0 and sum_y / count or 0, min_x, max_x, min_y, max_y))
+    end
+end

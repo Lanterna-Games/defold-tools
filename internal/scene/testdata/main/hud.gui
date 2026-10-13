@@ -1,0 +1,119 @@
+textures {
+  name: "pics"
+  texture: "/main/pics.atlas"
+}
+textures {
+  name: "pivots"
+  texture: "/main/pivots.atlas"
+}
+nodes {
+  position {
+    x: 300.0
+    y: 140.0
+  }
+  size {
+    x: 120.0
+    y: 80.0
+  }
+  type: TYPE_BOX
+  texture: "pics/ramp"
+  id: "sliced"
+  slice9 {
+    x: 4.0
+    y: 8.0
+    z: 12.0
+    w: 16.0
+  }
+}
+nodes {
+  position {
+    x: 80.0
+    y: 50.0
+  }
+  size {
+    x: 80.0
+    y: 80.0
+  }
+  color {
+    y: 0.5
+    z: 0.0
+  }
+  type: TYPE_PIE
+  id: "quarter_pie"
+  pieFillAngle: 90.0
+}
+nodes {
+  position {
+    x: 200.0
+    y: 50.0
+  }
+  size {
+    x: 80.0
+    y: 80.0
+  }
+  color {
+    x: 0.0
+    y: 0.8
+  }
+  type: TYPE_PIE
+  id: "negative_pie"
+  innerRadius: 20.0
+  pieFillAngle: -120.0
+}
+nodes {
+  position {
+    x: 320.0
+    y: 50.0
+  }
+  type: TYPE_BOX
+  texture: "pics/mirrored"
+  id: "mirrored_box"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 360.0
+    y: 250.0
+  }
+  type: TYPE_BOX
+  texture: "pivots/quarters"
+  id: "pivoted_box"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 360.0
+    y: 250.0
+  }
+  size {
+    x: 4.0
+    y: 4.0
+  }
+  type: TYPE_BOX
+  id: "pivoted_box_dot"
+}
+nodes {
+  position {
+    x: 150.0
+    y: 20.0
+  }
+  type: TYPE_BOX
+  texture: "pivots/quarters"
+  id: "pivoted_corner"
+  pivot: PIVOT_SW
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 150.0
+    y: 20.0
+  }
+  size {
+    x: 4.0
+    y: 4.0
+  }
+  type: TYPE_BOX
+  id: "pivoted_corner_dot"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

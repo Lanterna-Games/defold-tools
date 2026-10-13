@@ -1,0 +1,55 @@
+defold-tools
+Copyright (c) 2026 Lanterna Games
+
+What is ours is given away under the licence in LICENSE. Two things in this
+repository are not ours, and come with their own terms.
+
+
+1. The reference of Defold
+
+The files under internal/engine/reference and internal/docs/bundled hold what
+the Defold Foundation publishes with each release of Defold at d.defold.com:
+its reference documentation, the schema of its project settings, and from its
+builtins the names found in the builtin materials and the builtin input
+binding. The programs built from this
+repository carry those files inside them, and write and serve documentation
+made from them.
+
+    Copyright 2020 The Defold Foundation
+
+    Licensed under the Defold License version 1.0 (the "License"); you may not
+    use this file except in compliance with the License.
+
+    You may obtain a copy of the License, together with FAQs at:
+
+    https://www.defold.com/opensource
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations
+    under the License.
+
+A copy of that licence is in licenses/Defold-License-1.0.txt.
+
+The files are not as the Defold Foundation published them. They were changed:
+the documentation was read, cut down to what the programs use, written again
+as JSON and compressed, by internal/engine/generate.
+
+The Defold License, not the licence in LICENSE, governs those files and what
+is made from them. Among its conditions: whoever passes them on gives a copy
+of that licence along, keeps this notice, and does not sell or otherwise
+commercialise them as a game engine product.
+
+defold-tools is not affiliated with the Defold Foundation.
+
+
+2. toml
+
+The programs are built with github.com/BurntSushi/toml, which reads the
+settings file of a project. It is not in this repository, and it is in the
+programs built from it.
+
+    Copyright (c) 2013 TOML authors
+
+It is under the MIT licence, a copy of which is in licenses/toml-MIT.txt.

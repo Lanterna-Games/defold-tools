@@ -1,0 +1,321 @@
+script: "/main/study.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "ui"
+  texture: "/main/ui.atlas"
+}
+nodes {
+  position {
+    x: 100.0
+    y: 50.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "plain"
+}
+nodes {
+  position {
+    x: 400.0
+    y: 300.0
+  }
+  rotation {
+    x: 10.0
+    y: 20.0
+    z: 30.0
+  }
+  scale {
+    x: 2.0
+    y: 0.5
+  }
+  size {
+    x: 100.0
+    y: 60.0
+  }
+  type: TYPE_BOX
+  id: "turned"
+  pivot: PIVOT_SW
+}
+nodes {
+  position {
+    x: 50.0
+    y: 30.0
+    z: 5.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "turned_child"
+  parent: "turned"
+}
+nodes {
+  position {
+    x: 700.0
+    y: 500.0
+  }
+  type: TYPE_BOX
+  texture: "ui/wide"
+  id: "auto"
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 800.0
+    y: 100.0
+  }
+  rotation {
+    z: -40.0
+  }
+  size {
+    x: 90.0
+    y: 30.0
+  }
+  type: TYPE_BOX
+  texture: "ui/tall"
+  id: "stretched"
+  pivot: PIVOT_NE
+}
+nodes {
+  position {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "no_size"
+}
+nodes {
+  position {
+    x: 300.0
+    y: 100.0
+  }
+  size {
+    x: 200.0
+    y: 50.0
+  }
+  type: TYPE_TEXT
+  text: "hello"
+  font: "default"
+  id: "text"
+  pivot: PIVOT_NW
+}
+nodes {
+  position {
+    x: 150.0
+    y: 400.0
+  }
+  size {
+    x: 120.0
+    y: 80.0
+  }
+  type: TYPE_PIE
+  id: "pie"
+  pivot: PIVOT_E
+}
+nodes {
+  position {
+    x: 600.0
+    y: 200.0
+  }
+  rotation {
+    z: 90.0
+  }
+  scale {
+    x: 2.0
+    y: 2.0
+  }
+  type: TYPE_TEMPLATE
+  id: "holder"
+  template: "/main/part.gui"
+}
+nodes {
+  type: TYPE_BOX
+  id: "holder/root"
+  parent: "holder"
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 7.0
+    y: 9.0
+  }
+  type: TYPE_BOX
+  id: "holder/leaf"
+  parent: "holder/root"
+  overridden_fields: 1
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 999.0
+    y: 999.0
+  }
+  type: TYPE_BOX
+  id: "holder/silent"
+  parent: "holder/root"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEMPLATE
+  id: "holder/nest"
+  parent: "holder/root"
+  template: "/main/inner.gui"
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 1.0
+    y: 2.0
+  }
+  type: TYPE_BOX
+  id: "holder/nest/dot"
+  parent: "holder/nest"
+  overridden_fields: 1
+  template_node_child: true
+}
+nodes {
+  position {
+    x: 200.0
+    y: 550.0
+  }
+  rotation {
+    x: 10.0
+    y: 20.0
+    z: 30.0
+  }
+  size {
+    x: 100.0
+    y: 60.0
+  }
+  type: TYPE_BOX
+  id: "spun"
+}
+nodes {
+  position {
+    x: 50.0
+    y: 30.0
+    z: 5.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "spun_child"
+  parent: "spun"
+}
+nodes {
+  position {
+    x: 50.0
+    y: 30.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "spun_flat_child"
+  parent: "spun"
+}
+nodes {
+  position {
+    x: 50.0
+    y: 30.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "turned_flat_child"
+  parent: "turned"
+}
+nodes {
+  position {
+    x: 480.0
+    y: 320.0
+  }
+  rotation {
+    z: 30.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "z30"
+}
+nodes {
+  position {
+    x: 100.0
+  }
+  size {
+    x: 2.0
+    y: 2.0
+  }
+  type: TYPE_BOX
+  id: "z30_child"
+  parent: "z30"
+}
+nodes {
+  position {
+    x: 480.0
+    y: 320.0
+  }
+  rotation {
+    z: 45.0
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "z45"
+}
+nodes {
+  position {
+    x: 100.0
+  }
+  size {
+    x: 2.0
+    y: 2.0
+  }
+  type: TYPE_BOX
+  id: "z45_child"
+  parent: "z45"
+}
+nodes {
+  position {
+    x: 480.0
+    y: 320.0
+  }
+  rotation {
+    z: 123.4
+  }
+  size {
+    x: 10.0
+    y: 10.0
+  }
+  type: TYPE_BOX
+  id: "z123"
+}
+nodes {
+  position {
+    x: 100.0
+  }
+  size {
+    x: 2.0
+    y: 2.0
+  }
+  type: TYPE_BOX
+  id: "z123_child"
+  parent: "z123"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

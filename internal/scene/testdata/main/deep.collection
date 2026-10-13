@@ -1,0 +1,17 @@
+name: "deep"
+scale_along_z: 0
+instances {
+  id: "leaf"
+  prototype: "/main/prop.go"
+  position {
+    x: 5
+    y: 0
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 1.0
+    w: 6.123233995736766e-17
+  }
+}

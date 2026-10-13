@@ -1,0 +1,15 @@
+components {
+  id: "map"
+  component: "/main/level.tilemap"
+  position {
+    x: -8
+    y: -8
+    z: 0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}

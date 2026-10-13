@@ -1,0 +1,89 @@
+# `golangci-lint config verify` runs in the gate, so a mistake in this file
+# stops the build instead of quietly switching a linter off.
+version: "2"
+
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+
+linters:
+  default: standard
+  enable:
+    - bidichk                    # invisible characters that reorder what a reviewer sees
+    - bodyclose
+    - copyloopvar
+    - dupword
+    - durationcheck
+    - errname
+    - errorlint                  # %w and errors.Is, not == on a wrapped error
+    - exhaustive                 # a switch over syntax node kinds must name every kind
+    - forcetypeassert
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - gocritic
+    - gosec
+    - intrange
+    - makezero
+    - mirror
+    - misspell
+    - modernize
+    - nilerr
+    - nilnil
+    - noctx
+    - nolintlint
+    - perfsprint
+    - predeclared
+    - reassign
+    - recvcheck
+    - revive
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - usestdlibvars
+    - wastedassign
+    - whitespace
+  settings:
+    exhaustive:
+      default-signifies-exhaustive: false
+    nolintlint:
+      # A silenced linter says which one and why, on the same line.
+      require-explanation: true
+      require-specific: true
+      allow-unused: false
+    revive:
+      rules:
+        # Source files carry no comments (docs/decisions/0007), so a rule that
+        # demands one on every exported name contradicts the codebase.
+        - name: exported
+          disabled: true
+        - name: package-comments
+          disabled: true
+    staticcheck:
+      checks:
+        - all
+        - -ST1000                # package comment: see revive above
+        - -ST1020                # comment on exported function
+        - -ST1021                # comment on exported type
+        - -ST1022                # comment on exported variable
+  exclusions:
+    generated: lax
+    presets:
+      - std-error-handling
+    rules:
+      # Test files hold fixtures in other languages, where "end end" is not a typo.
+      - path: _test\.go
+        linters: [gosec, noctx, forcetypeassert, dupword]
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/Lanterna-Games/defold-tools
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

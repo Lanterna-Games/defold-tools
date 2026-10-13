@@ -1,0 +1,10 @@
+image: "/main/quarters.png"
+tile_width: 32
+tile_height: 32
+animations {
+  id: "walk"
+  start_tile: 1
+  end_tile: 1
+  flip_horizontal: 1
+}
+extrude_borders: 2

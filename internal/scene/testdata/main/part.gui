@@ -1,0 +1,59 @@
+nodes {
+  position {
+    x: 10.0
+    y: 20.0
+  }
+  size {
+    x: 50.0
+    y: 50.0
+  }
+  type: TYPE_BOX
+  id: "root"
+}
+nodes {
+  position {
+    x: 30.0
+  }
+  size {
+    x: 20.0
+    y: 20.0
+  }
+  type: TYPE_BOX
+  id: "leaf"
+  parent: "root"
+}
+nodes {
+  position {
+    y: 40.0
+  }
+  size {
+    x: 20.0
+    y: 20.0
+  }
+  type: TYPE_BOX
+  id: "silent"
+  parent: "root"
+}
+nodes {
+  position {
+    x: -20.0
+    y: 10.0
+  }
+  type: TYPE_TEMPLATE
+  id: "nest"
+  parent: "root"
+  template: "/main/inner.gui"
+}
+nodes {
+  size {
+    x: 16.0
+    y: 4.0
+  }
+  type: TYPE_BOX
+  id: "nest/dot"
+  parent: "nest"
+  overridden_fields: 4
+  template_node_child: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

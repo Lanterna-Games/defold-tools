@@ -1,0 +1,158 @@
+embedded_components {
+  id: "plain"
+  type: "sprite"
+  data: "default_animation: \"quarters\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 50
+    y: 250
+    z: 0
+  }
+}
+embedded_components {
+  id: "plain_dot"
+  type: "sprite"
+  data: "default_animation: \"dot\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 50
+    y: 250
+    z: 0.5
+  }
+}
+embedded_components {
+  id: "mirrored"
+  type: "sprite"
+  data: "default_animation: \"mirrored\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 120
+    y: 250
+    z: 0
+  }
+}
+embedded_components {
+  id: "upside_down"
+  type: "sprite"
+  data: "default_animation: \"upside_down\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 190
+    y: 250
+    z: 0
+  }
+}
+embedded_components {
+  id: "pivoted"
+  type: "sprite"
+  data: "default_animation: \"quarters\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pivots.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 280
+    y: 250
+    z: 0
+  }
+}
+embedded_components {
+  id: "pivoted_dot"
+  type: "sprite"
+  data: "default_animation: \"dot\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 280
+    y: 250
+    z: 0.5
+  }
+}
+embedded_components {
+  id: "sliced"
+  type: "sprite"
+  data: "default_animation: \"ramp\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "size {\n"
+  "  x: 120.0\n"
+  "  y: 80.0\n"
+  "}\n"
+  "slice9 {\n"
+  "  x: 4.0\n"
+  "  y: 8.0\n"
+  "  z: 12.0\n"
+  "  w: 16.0\n"
+  "}\n"
+  "size_mode: SIZE_MODE_MANUAL\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 100
+    y: 140
+    z: 0
+  }
+}
+embedded_components {
+  id: "sliced_dot"
+  type: "sprite"
+  data: "default_animation: \"dot\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/pics.atlas\"\n"
+  "}\n"
+  ""
+  position {
+    x: 100
+    y: 140
+    z: 0.5
+  }
+}
+components {
+  id: "hud"
+  component: "/main/hud.gui"
+}
+embedded_components {
+  id: "tile_mirrored"
+  type: "sprite"
+  data: "default_animation: \"walk\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "textures {\n"
+  "  sampler: \"texture_sampler\"\n"
+  "  texture: \"/main/flipped.tilesource\"\n"
+  "}\n"
+  ""
+  position {
+    x: 220.0
+    y: 140.0
+  }
+}
